@@ -1,4 +1,4 @@
-package lt.vgrabauskas.foodrecipesapp
+package lt.vgrabauskas.foodrecipesapp.ui.fragments.recipes
 
 import android.os.Bundle
 import android.os.Handler
@@ -7,9 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewStub
-import android.widget.FrameLayout
 import com.facebook.shimmer.ShimmerFrameLayout
+import lt.vgrabauskas.foodrecipesapp.R
 
 class RecipesFragment : Fragment() {
 

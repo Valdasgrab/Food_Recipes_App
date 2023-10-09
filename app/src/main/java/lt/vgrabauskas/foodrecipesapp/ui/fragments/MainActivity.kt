@@ -1,4 +1,4 @@
-package lt.vgrabauskas.foodrecipesapp
+package lt.vgrabauskas.foodrecipesapp.ui.fragments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import lt.vgrabauskas.foodrecipesapp.R
 
 class MainActivity : AppCompatActivity() {
 
