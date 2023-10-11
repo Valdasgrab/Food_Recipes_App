@@ -1,4 +1,4 @@
-package lt.vgrabauskas.foodrecipesapp
+package lt.vgrabauskas.foodrecipesapp.util
 
 class Constants {
 

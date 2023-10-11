@@ -1,4 +1,4 @@
-package lt.vgrabauskas.foodrecipesapp
+package lt.vgrabauskas.foodrecipesapp.data.network
 
 import lt.vgrabauskas.foodrecipesapp.models.FoodRecipe
 import retrofit2.Response
