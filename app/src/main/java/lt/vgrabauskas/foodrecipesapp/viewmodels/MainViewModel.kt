@@ -1,4 +1,4 @@
-package lt.vgrabauskas.foodrecipesapp
+package lt.vgrabauskas.foodrecipesapp.viewmodels
 
 import android.app.Application
 import android.content.Context

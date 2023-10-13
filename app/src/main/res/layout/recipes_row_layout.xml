@@ -19,8 +19,8 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/row_cardView"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -39,9 +39,9 @@
                 <ImageView
                     android:id="@+id/recipe_imageView"
                     android:layout_width="200dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_heart"
+                    android:src="@drawable/ic_sad"
                     loadImageFromUrl="@{result.image}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
