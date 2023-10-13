@@ -15,15 +15,22 @@ class RecipesRowBinding {
 
         @BindingAdapter("loadImageFromUrl")
         @JvmStatic
-        fun loadImageFromUrl(imageView: ImageView, imageUrl: String) {
-            imageView.load(imageUrl) {
-                crossfade(600)
+        fun loadImageFromUrl(imageView: ImageView, imageUrl: String?) {
+
+            imageUrl?.let {
+                imageView.load(it) {
+                    crossfade(600)
+                }
+            }?: kotlin.run {
+                imageView.setImageResource(R.drawable.ic_sad)
             }
+
+
         }
 
         @BindingAdapter("setNumberOfLikes")
         @JvmStatic
-        fun setNumberOfLikes(textView:TextView, likes: Int ) {
+        fun setNumberOfLikes(textView: TextView, likes: Int) {
             textView.text = likes.toString()
         }
 
@@ -35,9 +42,9 @@ class RecipesRowBinding {
 
         @BindingAdapter("applyVeganColor")
         @JvmStatic
-        fun applyVeganColor (view: View, vegan:Boolean) {
+        fun applyVeganColor(view: View, vegan: Boolean) {
             if (vegan) {
-                when(view) {
+                when (view) {
                     is TextView -> {
                         view.setTextColor(
                             ContextCompat.getColor(
@@ -46,6 +53,7 @@ class RecipesRowBinding {
                             )
                         )
                     }
+
                     is ImageView -> {
                         view.setColorFilter(
                             ContextCompat.getColor(
