@@ -39,25 +39,23 @@ class RecipesFragment : Fragment() {
     ): View {
         _binding = FragmentRecipesBinding.inflate(inflater, container, false)
         val view = binding.root
-        requestApiData()
-//        readDatabase()
+        readDatabase()
         setupRecyclerView()
-
 
         return view
     }
 
-//    private fun readDatabase() {
-//        mainViewModel.readRecipes.observe(viewLifecycleOwner, {database ->
-//            if (database.isNotEmpty()) {
-//                mAdapter.setData(database[0].foodRecipe)
-//                hideShimmerEffect()
-//
-//            } else {
-//                requestApiData()
-//            }
-//        })
-//    }
+    private fun readDatabase() {
+        mainViewModel.readRecipes.observe(viewLifecycleOwner) { database ->
+            if (database.isNotEmpty()) {
+                mAdapter.setData(database[0].foodRecipe)
+                hideShimmerEffect()
+
+            } else {
+                requestApiData()
+            }
+        }
+    }
 
     private fun setupRecyclerView() {
         binding.recyclerview.adapter = mAdapter
