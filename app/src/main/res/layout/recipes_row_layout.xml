@@ -135,7 +135,7 @@
                     android:layout_marginStart="24dp"
                     app:layout_constraintStart_toEndOf="@+id/clock_imageView"
                     app:layout_constraintTop_toTopOf="@+id/clock_imageView"
-                    app:srcCompat="@drawable/ic_veg" />
+                    app:srcCompat="@drawable/ic_leaf" />
 
                 <TextView
                     android:id="@+id/flower_textView"
