@@ -3,6 +3,7 @@ package lt.vgrabauskas.foodrecipesapp.viewmodels
 import android.app.Application
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -32,14 +33,20 @@ class RecipesViewModel @Inject constructor(
     private var dietType = DEFAULT_DIET_TYPE
 
     var networkStatus = false
+    var backOnline = false
 
     val readMealAndDietType = dataStoreRepository.readMealAndDietType
+    val readBackOnline = dataStoreRepository.readBackOnline.asLiveData()
 
     fun saveMealAndDietType(mealType: String, mealTypeId: Int, dietType: String, dietTypeId: Int) =
         viewModelScope.launch(Dispatchers.IO) {
             dataStoreRepository.saveMealAndDietType(mealType, mealTypeId, dietType, dietTypeId)
         }
 
+    fun saveBackOnline(backOnline: Boolean) =
+        viewModelScope.launch(Dispatchers.IO) {
+            dataStoreRepository.saveBackOnline(backOnline)
+        }
 
     fun applyQueries(): HashMap<String, String> {
         val queries: HashMap<String, String> = HashMap()
@@ -63,6 +70,12 @@ class RecipesViewModel @Inject constructor(
     fun showNetworkStatus() {
         if (!networkStatus) {
             Toast.makeText(getApplication(), "No Internet Connection", Toast.LENGTH_SHORT).show()
+            saveBackOnline(true)
+        } else if (networkStatus) {
+            if (backOnline) {
+                Toast.makeText(getApplication(), "Back Online.", Toast.LENGTH_SHORT).show()
+                saveBackOnline(false)
+            }
         }
     }
 }
