@@ -58,10 +58,8 @@ class MainViewModel @Inject constructor(
                 }
             } catch (e: Exception) {
 
-
-                e.message.toString()
                 recipesResponse.value =
-                    NetworkResult.Error("Recipes Not Found. ${e.message.toString()}")
+                    NetworkResult.Error("Recipes Not Found.")
             }
         } else {
             recipesResponse.value = NetworkResult.Error("No Internet Connection.")
