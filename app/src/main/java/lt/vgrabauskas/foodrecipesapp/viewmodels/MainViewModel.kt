@@ -58,7 +58,9 @@ class MainViewModel @Inject constructor(
                 }
             } catch (e: Exception) {
 
-                recipesResponse.value = NetworkResult.Error("Recipes Not Found.")
+
+                e.message.toString()
+                recipesResponse.value = NetworkResult.Error("Recipes Not Found. ${e.message.toString()}")
             }
         } else {
             recipesResponse.value = NetworkResult.Error("No Internet Connection.")
@@ -80,7 +82,7 @@ class MainViewModel @Inject constructor(
                 return NetworkResult.Error("API Key Limited.")
             }
 
-            response.body()!!.results.isNullOrEmpty() -> {
+            response.body()!!.results.isEmpty() -> {
                 return NetworkResult.Error("Recipes notFound.")
             }
 

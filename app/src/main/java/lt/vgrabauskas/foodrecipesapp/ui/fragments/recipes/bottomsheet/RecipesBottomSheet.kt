@@ -11,14 +11,12 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
-import lt.vgrabauskas.foodrecipesapp.R
+import java.lang.Exception
+import java.util.*
 import lt.vgrabauskas.foodrecipesapp.databinding.RecipesBottomSheetBinding
 import lt.vgrabauskas.foodrecipesapp.util.Constants.Companion.DEFAULT_DIET_TYPE
 import lt.vgrabauskas.foodrecipesapp.util.Constants.Companion.DEFAULT_MEAL_TYPE
 import lt.vgrabauskas.foodrecipesapp.viewmodels.RecipesViewModel
-import java.lang.Exception
-import java.util.Locale
-
 
 class RecipesBottomSheet : BottomSheetDialogFragment() {
 
@@ -38,7 +36,7 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = RecipesBottomSheetBinding.inflate(inflater, container, false)
 
@@ -70,6 +68,8 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
                 dietTypeChip,
                 dietTypeChipId
             )
+            val action = RecipesBottomSheetDirections.actionRecipesBottomSheetToRecipesFragment(true)
+            findNavController().navigate(action)
         }
 
         return binding.root
