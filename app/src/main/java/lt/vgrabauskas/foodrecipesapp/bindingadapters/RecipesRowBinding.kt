@@ -22,7 +22,7 @@ class RecipesRowBinding {
                     crossfade(600)
                     error(R.drawable.ic_error_placeholder)
                 }
-            }?: kotlin.run {
+            } ?: kotlin.run {
                 imageView.setImageResource(R.drawable.ic_sad)
             }
 

@@ -73,10 +73,10 @@
 
         <ImageView
             android:id="@+id/error_imageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
             readApiResponse="@{mainViewModel.recipesResponse}"
             readDatabase="@{mainViewModel.readRecipes}"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:alpha="0.5"
             android:src="@drawable/ic_sad"
             android:visibility="invisible"
@@ -87,11 +87,11 @@
 
         <TextView
             android:id="@+id/error_textView"
+            readApiResponse2="@{mainViewModel.recipesResponse}"
+            readDatabase2="@{mainViewModel.readRecipes}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            readApiResponse2="@{mainViewModel.recipesResponse}"
-            readDatabase2="@{mainViewModel.readRecipes}"
             android:alpha="0.5"
             android:text="No data"
             android:textSize="18sp"
