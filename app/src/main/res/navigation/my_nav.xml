@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/recipesFragment"
         android:name="lt.vgrabauskas.foodrecipesapp.ui.fragments.recipes.RecipesFragment"
-        android:label="fragment_recipes"
+        android:label="Recipes"
         tools:layout="@layout/fragment_recipes">
         <action
             android:id="@+id/action_recipesFragment_to_recipesBottomSheet"
@@ -21,7 +21,7 @@
     <fragment
         android:id="@+id/favoriteRecipesFragment"
         android:name="lt.vgrabauskas.foodrecipesapp.ui.fragments.favorites.FavoriteRecipesFragment"
-        android:label="fragment_favorite_recipes"
+        android:label="Favorite Recipes"
         tools:layout="@layout/fragment_favorite_recipes" />
     <fragment
         android:id="@+id/foodJokeFragment"
