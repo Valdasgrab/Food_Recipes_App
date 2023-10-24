@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.navArgs
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 import lt.vgrabauskas.foodrecipesapp.R
 import lt.vgrabauskas.foodrecipesapp.adapters.PagerAdapter
 import lt.vgrabauskas.foodrecipesapp.databinding.ActivityDetailsBinding
@@ -17,6 +18,7 @@ import lt.vgrabauskas.foodrecipesapp.ui.fragments.overview.OverviewFragment
 import lt.vgrabauskas.foodrecipesapp.util.Constants.Companion.RECIPE_RESULT_KEY
 import lt.vgrabauskas.foodrecipesapp.viewmodels.MainViewModel
 
+@AndroidEntryPoint
 class DetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailsBinding
