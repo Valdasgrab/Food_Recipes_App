@@ -14,6 +14,7 @@ import lt.vgrabauskas.foodrecipesapp.databinding.ActivityDetailsBinding
 import lt.vgrabauskas.foodrecipesapp.ui.fragments.ingredients.IngredientsFragment
 import lt.vgrabauskas.foodrecipesapp.ui.fragments.instructions.InstructionsFragment
 import lt.vgrabauskas.foodrecipesapp.ui.fragments.overview.OverviewFragment
+import lt.vgrabauskas.foodrecipesapp.util.Constants.Companion.RECIPE_RESULT_KEY
 import lt.vgrabauskas.foodrecipesapp.viewmodels.MainViewModel
 
 class DetailsActivity : AppCompatActivity() {
@@ -47,7 +48,7 @@ class DetailsActivity : AppCompatActivity() {
         titles.add("Instructions")
 
         val resultBundle = Bundle()
-        resultBundle.putParcelable("recipeBundle", args.result)
+        resultBundle.putParcelable(RECIPE_RESULT_KEY, args.result)
 
         val pagerAdapter = PagerAdapter(
             resultBundle,
