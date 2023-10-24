@@ -3,9 +3,11 @@ package lt.vgrabauskas.foodrecipesapp.data.database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import lt.vgrabauskas.foodrecipesapp.data.database.entities.FavoritesEntity
+import lt.vgrabauskas.foodrecipesapp.data.database.entities.RecipesEntity
 
 @Database(
-    entities = [RecipesEntity::class],
+    entities = [RecipesEntity::class, FavoritesEntity::class],
     version = 1,
     exportSchema = false
 )

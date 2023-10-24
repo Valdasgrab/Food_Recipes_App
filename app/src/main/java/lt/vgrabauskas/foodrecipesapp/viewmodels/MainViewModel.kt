@@ -13,7 +13,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import lt.vgrabauskas.foodrecipesapp.data.Repository
-import lt.vgrabauskas.foodrecipesapp.data.database.RecipesEntity
+import lt.vgrabauskas.foodrecipesapp.data.database.entities.FavoritesEntity
+import lt.vgrabauskas.foodrecipesapp.data.database.entities.RecipesEntity
 
 import lt.vgrabauskas.foodrecipesapp.models.FoodRecipe
 import lt.vgrabauskas.foodrecipesapp.util.NetworkResult
@@ -27,11 +28,29 @@ class MainViewModel @Inject constructor(
 ) : AndroidViewModel(application) {
 
     //Room
-    val readRecipes: LiveData<List<RecipesEntity>> = repository.local.readDatabase().asLiveData()
+    val readRecipes: LiveData<List<RecipesEntity>> = repository.local.readRecipes().asLiveData()
+
+    val readFavoriteRecipes: LiveData<List<FavoritesEntity>> =
+        repository.local.readFavoriteRecipes().asLiveData()
 
     private fun insertRecipes(recipesEntity: RecipesEntity) =
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.insertRecipes(recipesEntity)
+        }
+
+    fun insertFavoriteRecipe(favoritesEntity: FavoritesEntity) =
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.insertFavoriteRecipes(favoritesEntity)
+        }
+
+    fun deleteFavoriteRecipe(favoritesEntity: FavoritesEntity) =
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.deleteFavoriteRecipe(favoritesEntity)
+        }
+
+    fun deleteAllFavoriteRecipes() =
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.local.deleteAllFavoriteRecipes()
         }
 
 
@@ -46,7 +65,6 @@ class MainViewModel @Inject constructor(
     fun searchRecipes(searchQuery: Map<String, String>) = viewModelScope.launch {
         searchRecipesSaveCall(searchQuery)
     }
-
 
 
     private suspend fun getRecipesSafeCall(queries: Map<String, String>) {
